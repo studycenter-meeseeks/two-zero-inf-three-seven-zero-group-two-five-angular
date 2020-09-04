@@ -1,7 +1,9 @@
+import { CreateAccountComponent } from './../create-account/create-account.component';
 import { ConfirmPasswordValidator } from './../../../services/validators/authentication.validator';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
   showLoadingEndicator = false;
 
   constructor(
+    private _matDialog:MatDialog,
+    public dialogRef: MatDialogRef<LoginComponent>,
     private _router:Router,
     loginFb: FormBuilder
   ) { 
@@ -62,10 +66,16 @@ export class LoginComponent implements OnInit {
   }
 
   createAccount() {
-    // this._router.navigate(['/create-account']);
+    this.closeCurrentDialog()
+    this._matDialog.open(CreateAccountComponent);
   }
 
   forgotPassword() {
     // this._router.navigate(['/forgot-password']);
   }
+
+  closeCurrentDialog() {
+    this.dialogRef.close({ event: 'Cancel' });
+  }
 }
+
