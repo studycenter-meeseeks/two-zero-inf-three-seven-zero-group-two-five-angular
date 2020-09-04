@@ -1,3 +1,4 @@
+import { LoginComponent } from './../../pages/authentication/login/login.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -16,7 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
   onLogIn(){
-    
+    const dialogRef = this._matDialog.open(LoginComponent,{
+      width:'auto',
+      height:'auto'
+    });
   }
-
 }

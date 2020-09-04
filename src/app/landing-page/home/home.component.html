@@ -2,13 +2,13 @@
     <img [routerLink]="" width="60" alt="Logo" src="assets/img/logo.png">
     <span class="site-name">Caleni Practice</span>
     <span class="header-remaining-space"></span>
-    <button class="signin" mat-raised-button>Log In</button>
+    <button class="signin" mat-raised-button (click)="onLogIn()">Log In</button>
 </div>
 
 <div class="content">
     <div class="welcome-section">
         <h1 class="welcome-text">Caleni Practice</h1>
-        <button class="book-now-button" mat-raised-button> Book Now </button>
+        <button class="book-now-button" mat-raised-button (click)="onLogIn()"> Book Now </button>
     </div>
 </div>
 
