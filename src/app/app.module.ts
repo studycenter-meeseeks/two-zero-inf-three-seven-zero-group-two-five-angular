@@ -10,13 +10,33 @@ import { LoginComponent } from './pages/authentication/login/login.component';
 import { CreateAccountComponent } from './pages/authentication/create-account/create-account.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmationErrorComponent } from './pages/authentication/confirmation-error/confirmation-error.component';
+import { ForgotPasswordConfirmComponent } from './pages/authentication/forgot-password-confirm/forgot-password-confirm.component';
+import { ConfirmedComponent } from './pages/authentication/confirmed/confirmed.component';
+import { ForgotPasswordComponent } from './pages/authentication/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/authentication/reset-password/reset-password.component';
+import { ResetPasswordErrorComponent } from './pages/authentication/reset-password-error/reset-password-error.component';
+import { ResetPasswordConfirmComponent } from './pages/authentication/reset-password-confirm/reset-password-confirm.component';
+import { PageNotFoundErrorComponent } from './pages/error-handling/page-not-found-error/page-not-found-error.component';
+import { AccountConfirmationErrorComponent } from './pages/authentication/account-confirmation-error/account-confirmation-error.component';
+import { AccountConfirmedComponent } from './pages/authentication/account-confirmed/account-confirmed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    ConfirmationErrorComponent,
+    ForgotPasswordConfirmComponent,
+    ConfirmedComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    ResetPasswordErrorComponent,
+    ResetPasswordConfirmComponent,
+    PageNotFoundErrorComponent,
+    AccountConfirmationErrorComponent,
+    AccountConfirmedComponent
   ],
   imports: [
     BrowserModule,
