@@ -1,3 +1,4 @@
+import { ListUserRolesComponent } from './pages/list-user-roles/list-user-roles.component';
 import { SuperDashboardComponent } from './pages/super-dashboard/super-dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,7 +10,8 @@ const routes: Routes = [
     path: '',
     component: SuperComponent,
     children: [
-      { path: 'dashboard', component: SuperDashboardComponent }
+      { path: 'dashboard', component: SuperDashboardComponent },
+      { path: 'roles', component: ListUserRolesComponent }
     ]
   }
 ];
