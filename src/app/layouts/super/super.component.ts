@@ -12,4 +12,11 @@ export class SuperComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  logOut(){
+    // this._router.navigate(['/signin']);
+    
+    // this._authService.signOut();
+
+  }
 }
