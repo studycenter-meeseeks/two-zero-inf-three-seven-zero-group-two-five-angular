@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'control', loadChildren: () => import('./layouts/control/control.module').then(m => m.ControlModule) },
   { path: 'admin', loadChildren: () => import('./layouts/admin/admin.module').then(m => m.AdminModule) },
   { path: 'doctor', loadChildren: () => import('./layouts/doctor/doctor.module').then(m => m.DoctorModule) },
+  { path: 'super', loadChildren: () => import('./layouts/super/super.module').then(m => m.SuperModule) },
   {path:'',component:HomeComponent},
   {path:'**',redirectTo:''}
 ];
