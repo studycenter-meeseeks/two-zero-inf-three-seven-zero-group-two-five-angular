@@ -1,26 +1,26 @@
 :host {
-    box-sizing: border-box;
-    height: 100vh;
-  }
-  
-  .main {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-  }
-  
-  .dash-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  .dash-control {
-    display: flex;
-    margin: 5px;
-    padding: 5px;
-    width: 208px;
-    height: 108px;
-    text-align: center;
-  }
-  
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.dash-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.dash-control {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  width: 208px;
+  height: 108px;
+  text-align: center;
+  cursor: pointer;
+}

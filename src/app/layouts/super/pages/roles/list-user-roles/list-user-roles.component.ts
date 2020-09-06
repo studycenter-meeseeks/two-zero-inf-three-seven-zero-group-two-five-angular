@@ -1,4 +1,4 @@
-import { Role } from './../../types/super-data-types';
+import { Role } from './../../../types/super-data-types';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';

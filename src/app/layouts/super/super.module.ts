@@ -5,13 +5,17 @@ import { CommonModule } from '@angular/common';
 import { SuperRoutingModule } from './super-routing.module';
 import { SuperComponent } from './super.component';
 import { SuperDashboardComponent } from './pages/super-dashboard/super-dashboard.component';
-import { ListUserRolesComponent } from './pages/list-user-roles/list-user-roles.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-roles.component';
+import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
 
 @NgModule({
-  declarations: [SuperComponent, SuperDashboardComponent, ListUserRolesComponent],
+  declarations: [
+    SuperComponent,
+    SuperDashboardComponent,
+    ListUserRolesComponent,
+    ListPsychologistsComponent],
   imports: [
     CommonModule,
     SuperRoutingModule,
