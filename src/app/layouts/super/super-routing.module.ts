@@ -1,3 +1,4 @@
+import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
 import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-roles.component';
 import { SuperDashboardComponent } from './pages/super-dashboard/super-dashboard.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,9 @@ const routes: Routes = [
     component: SuperComponent,
     children: [
       { path: 'dashboard', component: SuperDashboardComponent },
-      { path: 'roles', component: ListUserRolesComponent }
+      { path: 'roles', component: ListUserRolesComponent },
+      { path: 'psychologists', component: ListPsychologistsComponent },
+
     ]
   }
 ];

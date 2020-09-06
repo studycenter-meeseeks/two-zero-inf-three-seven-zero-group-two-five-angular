@@ -16,5 +16,9 @@ export class SuperDashboardComponent implements OnInit {
   onNavigateToRoles() {
     this._router.navigate(['/super/roles']);
   }
+  
+  onNavigateToPsychologists(){
+    this._router.navigate(['/super/psychologists']);
+  }
 
 }
