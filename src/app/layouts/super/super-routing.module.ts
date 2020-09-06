@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SuperComponent } from './super.component';
+import { ListCentresComponent } from './pages/centres/list-centres/list-centres.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'dashboard', component: SuperDashboardComponent },
       { path: 'roles', component: ListUserRolesComponent },
       { path: 'psychologists', component: ListPsychologistsComponent },
+      { path: 'centres', component: ListCentresComponent },
 
     ]
   }

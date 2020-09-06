@@ -21,4 +21,8 @@ export class SuperDashboardComponent implements OnInit {
     this._router.navigate(['/super/psychologists']);
   }
 
+  onNavigateToCentres(){
+    this._router.navigate(['/super/centres']);
+  }
+
 }

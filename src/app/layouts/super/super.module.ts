@@ -9,13 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-roles.component';
 import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
+import { ListCentresComponent } from './pages/centres/list-centres/list-centres.component';
 
 @NgModule({
   declarations: [
     SuperComponent,
     SuperDashboardComponent,
     ListUserRolesComponent,
-    ListPsychologistsComponent],
+    ListPsychologistsComponent,
+    ListCentresComponent],
   imports: [
     CommonModule,
     SuperRoutingModule,

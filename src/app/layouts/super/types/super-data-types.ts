@@ -9,3 +9,10 @@ export interface Psychologist{
     hPCSANo:string;
     practiceTitle:string;
 }
+
+export interface Centre{
+    name:string;
+    location:string;
+    psychologistsCount:number;
+    employeesCount:number;
+}
