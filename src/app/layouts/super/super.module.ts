@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-roles.component';
 import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
 import { ListCentresComponent } from './pages/centres/list-centres/list-centres.component';
+import { AddUserRoleComponent } from './pages/roles/add-user-role/add-user-role.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListCentresComponent } from './pages/centres/list-centres/list-centres.
     SuperDashboardComponent,
     ListUserRolesComponent,
     ListPsychologistsComponent,
-    ListCentresComponent],
+    ListCentresComponent,
+    AddUserRoleComponent],
   imports: [
     CommonModule,
     SuperRoutingModule,

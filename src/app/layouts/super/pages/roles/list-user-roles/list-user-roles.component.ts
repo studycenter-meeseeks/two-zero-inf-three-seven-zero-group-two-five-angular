@@ -2,6 +2,7 @@ import { Role } from './../../../types/super-data-types';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-user-roles',
@@ -15,7 +16,8 @@ export class ListUserRolesComponent implements OnInit {
   role: Role;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  constructor() { }
+
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,18 +27,18 @@ export class ListUserRolesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  onAssignRole(role){
+  onAssignRole(role) {
 
   }
-  onViewPrivileges(role){
+  onViewPrivileges(role) {
 
   }
-  oViewRoleMembers(role){
+  oViewRoleMembers(role) {
 
   }
 
-  onAddNewRole(){
-    
+  onAddNewRole() {
+    this._router.navigate(['/super/roles/new']);
   }
 
 }

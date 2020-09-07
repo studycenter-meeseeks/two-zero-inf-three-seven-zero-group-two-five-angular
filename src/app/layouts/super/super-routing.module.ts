@@ -1,3 +1,4 @@
+import { AddUserRoleComponent } from './pages/roles/add-user-role/add-user-role.component';
 import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
 import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-roles.component';
 import { SuperDashboardComponent } from './pages/super-dashboard/super-dashboard.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
     component: SuperComponent,
     children: [
       { path: 'dashboard', component: SuperDashboardComponent },
+      { path: 'roles/new', component: AddUserRoleComponent },
       { path: 'roles', component: ListUserRolesComponent },
       { path: 'psychologists', component: ListPsychologistsComponent },
       { path: 'centres', component: ListCentresComponent },
