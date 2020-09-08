@@ -11,6 +11,8 @@ import { ListUserRolesComponent } from './pages/roles/list-user-roles/list-user-
 import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
 import { ListCentresComponent } from './pages/centres/list-centres/list-centres.component';
 import { AddUserRoleComponent } from './pages/roles/add-user-role/add-user-role.component';
+import { AddPsychologistComponent } from './pages/psychologists/add-psychologist/add-psychologist.component';
+import { AddCentreComponent } from './pages/centres/add-centre/add-centre.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddUserRoleComponent } from './pages/roles/add-user-role/add-user-role.
     ListUserRolesComponent,
     ListPsychologistsComponent,
     ListCentresComponent,
-    AddUserRoleComponent],
+    AddUserRoleComponent,
+    AddPsychologistComponent,
+    AddCentreComponent],
   imports: [
     CommonModule,
     SuperRoutingModule,

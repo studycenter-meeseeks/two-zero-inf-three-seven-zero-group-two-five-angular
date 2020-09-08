@@ -1,9 +1,8 @@
 import { GenericNameAndId } from './../../../../../types/data-types';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SubSystem } from '../../../types/super-data-types';
 import { SuperService } from './../../../services/super.service'
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import {  HttpEventType } from '@angular/common/http';
 import { MatListOption } from '@angular/material/list';
 
 @Component({
@@ -70,11 +69,7 @@ export class AddUserRoleComponent implements OnInit {
 
 
   onbindOperationAndSubSystem(subSystem, operation) {
-    // let privilege ={};
-    // privilege["SubSystem"] = subSystem;
-    // privilege["Operation"] = operation;
     return subSystem + ":" + operation;
-    // return privilege;
   }
 
   onGroupsChange(options: MatListOption[]) {
@@ -110,7 +105,6 @@ export class AddUserRoleComponent implements OnInit {
     });
 
   }
-
 
 }
 

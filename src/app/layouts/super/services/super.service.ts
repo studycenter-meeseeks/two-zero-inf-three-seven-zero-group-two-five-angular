@@ -27,4 +27,13 @@ export class SuperService {
 
   }
 
+  createCentre(payload){
+    return this._httpClient.post(this.endpointBase.concat("Application/Centres/Create"), payload, { reportProgress: true, observe: "events" })
+  }
+
+  getAllCentres(){
+    return this._httpClient.get(this.endpointBase.concat("Application/Centres/GetAll"), { reportProgress: true, observe: "events" })
+
+  }
+
 }
