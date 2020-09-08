@@ -8,7 +8,7 @@ export interface Psychologist{
     id:number;
     fullName:string;
     practiceNo:string;
-    hPCSANo:string;
+    hpcsaNo:string;
     practiceTitle:string;
 }
 
