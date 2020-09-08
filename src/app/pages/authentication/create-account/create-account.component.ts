@@ -1,3 +1,4 @@
+import { AccountService } from './../../../services/account/account.service';
 import { LoginComponent } from './../login/login.component';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,7 @@ export class CreateAccountComponent implements OnInit {
     private _matDialog: MatDialog,
     private _dialogRef: MatDialogRef<CreateAccountComponent>,
     private _router: Router,
-    // private _authService: AuthService,
+    private _accountService: AccountService,
     private _route: ActivatedRoute,
     private _formBuiler: FormBuilder
   ) {
@@ -51,33 +52,32 @@ export class CreateAccountComponent implements OnInit {
     return this.userForm.get('ConfirmPassword');
   }
 
-
-
-  signUp() {
+  onSignUp() {
     console.log(this.userForm.value);
-    // this.errorMessage = "";
-    // if (this.userForm.valid) {
-    //   this._authService.signUp(this.userForm.value)
-    //     .subscribe(event => {
-    //       if (event.type === HttpEventType.Sent) {
-    //         this.showLoadingEndicator = true;
-    //       }
-    //       if (event.type === HttpEventType.Response) {
-    //         this.showLoadingEndicator = false;
-    //         localStorage.setItem('token', event.body['token']);
-    //         let returnUrl = this._route
-    //           .snapshot
-    //           .queryParamMap.get('returnUrl');
-    //         this._router.navigate([returnUrl || '/browse/all']);
-    //       }
-    //     },
-    //       error => {
-    //         this.showLoadingEndicator = false;
-    //         this.errorMessage = error.error.message;
-    //       })
-
-    // }
+    this.errorMessage = "";
+    if (this.userForm.valid) {
+      this._accountService.registerPatient(this.userForm.value)
+        .subscribe(event => {
+          if (event.type === HttpEventType.Sent) {
+            this.showLoadingEndicator = true;
+          }
+          if (event.type === HttpEventType.Response) {
+            this.showLoadingEndicator = false;
+            localStorage.setItem('token', event.body['token']);
+            let returnUrl = this._route
+              .snapshot
+              .queryParamMap.get('returnUrl');
+            this.closeCurrentDialog();
+            this._router.navigate([returnUrl || './patient/account/setup']);
+          }
+        },
+          error => {
+            this.showLoadingEndicator = false;
+            this.errorMessage = error.error.message;
+          })
+    }
   }
+
 
   logIn() {
     this.closeCurrentDialog();
