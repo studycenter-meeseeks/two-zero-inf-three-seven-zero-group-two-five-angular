@@ -14,4 +14,9 @@ export class AccountService {
   addPsychologistt(payload) {
     return this._httpClient.post(this.endpointBase.concat("Account/Psychologist/Add"), payload, { observe: 'events', reportProgress: true });
   }
+
+  resendPsychologistAccountCreatedEmail(psychologistId) {
+    return this._httpClient.get(this.endpointBase.concat("Account/Psychologist/ResentAccountCreated/" + psychologistId),
+      { observe: 'events', reportProgress: true });
+  }
 }
