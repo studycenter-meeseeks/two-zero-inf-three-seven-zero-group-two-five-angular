@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Psychologist } from '../../../types/super-data-types';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-psychologists',
@@ -9,7 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./list-psychologists.component.scss']
 })
 export class ListPsychologistsComponent implements OnInit {
-  displayedColumns: string[] = ['fullName','practiceTitle', 'practiceNo','hPCSANo', 'actions'];
+  displayedColumns: string[] = ['fullName', 'practiceTitle', 'practiceNo', 'hPCSANo', 'actions'];
   dataSource;
 
   roles: Psychologist[] = [];
@@ -17,7 +18,7 @@ export class ListPsychologistsComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,23 +28,24 @@ export class ListPsychologistsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
- 
 
-  onAddNewPsychologist(){
-  }
-  
-  onViewContactDetails(psychologist){
+
+  onAddNewPsychologist() {
+    this._router.navigate(['./super/psychologists/new']);
   }
 
-  onViewQualifications(psychologist){
-
+  onViewContactDetails(psychologist) {
   }
 
-  onViewServices(psychologist){
+  onViewQualifications(psychologist) {
 
   }
 
-  onDeactivate(psychologist){
-    
+  onViewServices(psychologist) {
+
+  }
+
+  onDeactivate(psychologist) {
+
   }
 }

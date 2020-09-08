@@ -2,6 +2,7 @@ import { SuperService } from './../../../services/super.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HttpEventType } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-centre',
@@ -13,7 +14,10 @@ export class AddCentreComponent implements OnInit {
   centreAddressFormGroup: FormGroup;
 
   formToSendToServer: any = {};
-  constructor(private _formBuiler: FormBuilder,private _superService:SuperService) {
+  constructor(
+    private _formBuiler: FormBuilder,
+    private _superService: SuperService,
+    private _router: Router) {
   }
 
   ngOnInit(): void {
@@ -81,6 +85,10 @@ export class AddCentreComponent implements OnInit {
 
       }
     });
+  }
+
+  goToCentres() {
+    this._router.navigate(['./super/centres']);
   }
 
 }

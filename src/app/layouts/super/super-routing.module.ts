@@ -1,3 +1,4 @@
+import { AddPsychologistComponent } from './pages/psychologists/add-psychologist/add-psychologist.component';
 import { AddCentreComponent } from './pages/centres/add-centre/add-centre.component';
 import { AddUserRoleComponent } from './pages/roles/add-user-role/add-user-role.component';
 import { ListPsychologistsComponent } from './pages/psychologists/list-psychologists/list-psychologists.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'roles/new', component: AddUserRoleComponent },
       { path: 'roles', component: ListUserRolesComponent },
       { path: 'roles', component: ListUserRolesComponent },
+      { path: 'psychologists/new', component: AddPsychologistComponent },
       { path: 'psychologists', component: ListPsychologistsComponent },
       { path: 'centres/new', component: AddCentreComponent },
       { path: 'centres', component: ListCentresComponent },

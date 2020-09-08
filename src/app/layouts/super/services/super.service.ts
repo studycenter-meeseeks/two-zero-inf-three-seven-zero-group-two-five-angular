@@ -12,6 +12,14 @@ export class SuperService {
 
   constructor(private _httpClient: HttpClient) { }
 
+  getAllTitles() {
+    return this._httpClient.get(this.endpointBase.concat("Application/Titles/GetAll"), { reportProgress: true, observe: "events" })
+  }
+
+  getAllGenders() {
+    return this._httpClient.get(this.endpointBase.concat("Application/Genders/GetAll"), { reportProgress: true, observe: "events" })
+  }
+
   getAllOperations() {
     return this._httpClient.get(this.endpointBase.concat("Application/Operations/GetAll"), { reportProgress: true, observe: "events" })
   }
@@ -19,6 +27,7 @@ export class SuperService {
   getAllSubSystems() {
     return this._httpClient.get(this.endpointBase.concat("Application/SubSystems/GetAll"), { reportProgress: true, observe: "events" })
   }
+
 
   getAllRolesAndPrivileges() {
     return this._httpClient.get(this.endpointBase.concat("Application/Roles/GetAll"),{ reportProgress: true, observe: "events" })
