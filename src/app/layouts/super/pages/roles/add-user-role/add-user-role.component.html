@@ -1,0 +1,62 @@
+<div class="main">
+    <mat-horizontal-stepper linear #stepper class="stepper-container">
+        <mat-step [stepControl]="roleDetailsFormGroup" [editable]="false">
+            <form [formGroup]="roleDetailsFormGroup" class="form">
+                <ng-template matStepLabel>Role Details</ng-template>
+                <mat-form-field>
+                    <mat-label>Name *</mat-label>
+                    <input matInput formControlName="Name" type="text" #roleName>
+                    <mat-error *ngIf="Name.touched && Name.invalid">
+                        <div *ngIf="Name.errors.required">Name is required.</div>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="control-buttons-container">
+                    <button mat-raised-button matStepperNext color="primary">Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="rolePrivilegesFormGroup" [editable]="false">
+            <mat-card class="subSystem-card">
+                <mat-card-title>{{Name.value}}</mat-card-title>
+            </mat-card>
+
+            <form>
+                <ng-template matStepLabel>Select Role Privileges</ng-template>
+                <mat-accordion>
+
+                    <mat-expansion-panel *ngFor="let subSystem of subSystems">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title #subSystem> {{subSystem.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-selection-list #operationList
+                            (selectionChange)="onGroupsChange(operationList.selectedOptions.selected)">
+                            <mat-list-option *ngFor="let operation of operations"
+                                [value]="onbindOperationAndSubSystem(subSystem.name,operation.name)">
+                                {{operation.name}}
+                            </mat-list-option>
+                        </mat-selection-list>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <div class="control-buttons-container">
+                    <!-- <button mat-raised-button matStepperPrevious>Back</button> -->
+                    <button mat-raised-button color="primary" matStepperNext class="procced-button"
+                        (click)="onSubmit()"
+                        [disabled]="selectedOperations.length ==0"
+                        >Create  {{Name.value}} Role and assigned Privileges</button>
+                </div>
+            </form>
+
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>Role and privileges added.</p>
+            <div>
+                <button mat-button >Go to Roles</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

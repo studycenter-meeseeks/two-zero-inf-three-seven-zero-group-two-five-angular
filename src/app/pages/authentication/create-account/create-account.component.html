@@ -1,0 +1,79 @@
+<div class="loader-container">
+    <mat-progress-bar *ngIf="showLoadingEndicator" mode="indeterminate"></mat-progress-bar>
+</div>
+<mat-card class="card-container">
+
+    <div class="image-container">
+
+        <img src="assets/img/logo.png" class="header-image">
+    </div>
+    <div>
+        <mat-card-title>Create your Account</mat-card-title>
+        <mat-card-subtitle *ngIf="errorMessage">{{errorMessage}}</mat-card-subtitle>
+    </div>
+
+    <mat-card-content>
+
+        <form [formGroup]="userForm" (ngSubmit)="onSignUp()">
+            <div class="form-field-container-inline">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="Name" type="text" matInput>
+                    <mat-error *ngIf="Name.touched && Name.invalid">
+                        <div *ngIf="Name.errors.required"> Please provide name.</div>
+                    </mat-error>
+
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Surname</mat-label>
+                    <input formControlName="Surname" type="text" matInput>
+                    <mat-error *ngIf="Surname.touched && Surname.invalid">
+                        <div *ngIf="Surname.errors.required"> Please provide surname.</div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-field-container">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Email address</mat-label>
+                    <input formControlName="Email" type="email" matInput>
+                    <mat-error *ngIf="Email.touched && Email.invalid">
+                        <div *ngIf="Email.errors.required"> Please provide email.</div>
+                        <div *ngIf="Email.errors.email"> Please provide valid email.</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Cellphone number</mat-label>
+                    <input formControlName="ContactNumber" type="text" matInput>
+                    <mat-error *ngIf="ContactNumber.touched && ContactNumber.invalid">
+                        <div *ngIf="ContactNumber.errors.required"> Please provide phone number.</div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-field-container-inline">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="Password" type="password" matInput>
+                    <mat-error *ngIf="Password.touched && Password.invalid">
+                        <div *ngIf="Password.errors.required"> Please provide password.</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input formControlName="ConfirmPassword" type="password" matInput>
+                    <mat-error *ngIf="ConfirmPassword.touched && ConfirmPassword.invalid">
+                        <div *ngIf="ConfirmPassword.errors.required">Please provide confirm password.</div>
+                        <div *ngIf="ConfirmPassword.errors.ConfirmPassword">Passsword and ConfirmPassword didn't match.
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="bottom-controls-container">
+                <button class="signin-button" type="button" mat-button (click)="logIn()">Log in instead</button>
+                <button class="signup-button" type="submit" mat-button>Create Account</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

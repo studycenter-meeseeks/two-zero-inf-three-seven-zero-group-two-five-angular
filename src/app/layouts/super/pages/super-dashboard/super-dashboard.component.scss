@@ -1,0 +1,45 @@
+:host {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.table-container,
+.form-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  padding: 16px;
+}
+
+.table-top-controllers {
+  background-color: #eeeeee;
+  padding: 5px;
+}
+
+.table-name {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bolder;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.dash-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.dash-control {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  width: 208px;
+  height: 108px;
+  text-align: center;
+  cursor: pointer;
+}

@@ -1,0 +1,86 @@
+<div class="mat-elevation-z8 table-container">
+    <div class="table-top-controllers">
+        <span class="table-name"> Add new Centre</span>
+    </div>
+
+    <div class="main">
+        <mat-horizontal-stepper linear #stepper class="stepper-container">
+            <mat-step [stepControl]="centreDetailsFormGroup" [editable]="true">
+                <form [formGroup]="centreDetailsFormGroup" class="form">
+                    <ng-template matStepLabel>Centre Details</ng-template>
+                    <mat-form-field>
+                        <mat-label>Name *</mat-label>
+                        <input matInput formControlName="Name" type="text">
+                        <mat-error *ngIf="Name.touched && Name.invalid">
+                            <div *ngIf="Name.errors.required">Name is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <div class="control-buttons-container">
+                        <button mat-raised-button matStepperNext color="primary">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+    
+            <mat-step [stepControl]="centreAddressFormGroup" [editable]="false">
+                <form [formGroup]="centreAddressFormGroup" class="form">
+                    <ng-template matStepLabel>Centre Address</ng-template>
+                    <mat-form-field>
+                        <mat-label>Line 1</mat-label>
+                        <input matInput formControlName="Line1" type="text">
+                        <mat-error *ngIf="Line1.touched && Line1.invalid">
+                            <div *ngIf="Line1.errors.required">Name is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>Line 2</mat-label>
+                        <input matInput formControlName="Line2" type="text">
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>City or Town</mat-label>
+                        <input matInput formControlName="CityOrTown" type="text">
+                        <mat-error *ngIf="CityOrTown.touched && CityOrTown.invalid">
+                            <div *ngIf="CityOrTown.errors.required">City/Town required.</div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>Province</mat-label>
+                        <input matInput formControlName="Province" type="text">
+                        <mat-error *ngIf="Province.touched && Province.invalid">
+                            <div *ngIf="Province.errors.required">Province is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput formControlName="ZipCode" type="text">
+                        <mat-error *ngIf="ZipCode.touched && Province.invalid">
+                            <div *ngIf="ZipCode.errors.required">Postal code is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <div class="control-buttons-container">
+                        <button mat-raised-button matStepperPrevious>Back</button>
+                        <button mat-raised-button color="primary" matStepperNext class="procced-button" 
+                        (click)="onSubmit()"
+                        >
+                            Add
+                        </button>
+                    </div>
+                </form>
+    
+            </mat-step>
+    
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>Centre added</p>
+                <div>
+                    <button mat-raised-button color="primary" (click)="goToCentres()">Go to Centres</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>

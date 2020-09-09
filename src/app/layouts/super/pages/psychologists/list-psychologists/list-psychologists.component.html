@@ -1,0 +1,62 @@
+
+    <div class="mat-elevation-z8 table-container">
+        <div class="table-top-controllers">
+          <span class="table-name"> Psychologists |</span>
+          <button mat-button (click)="onAddNewPsychologist()">Add new Psychologist</button>
+        </div>
+  
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+        </mat-form-field>
+  
+        <mat-table [dataSource]="dataSource" matSort class="table" #mytable>
+  
+  
+          <ng-container matColumnDef="fullName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fullName}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="practiceTitle">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.practiceTitle}} </mat-cell>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="practiceNo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Practice No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.practiceNo}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="hPCSANo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> HPCSA No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.hpcsaNo}} </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-button  [matMenuTriggerFor]="menu">More</button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onViewContactDetails(element)">View Contact Details</button>
+                <button mat-menu-item (click)="onViewQualifications(element)">View Qualifications</button>
+                <button mat-menu-item (click)="onViewServices(element)">View Services</button>
+                <mat-divider [inset]="true"></mat-divider>
+                <button mat-menu-item (click)="onResentAccountCreatedEmail(element)">Resent Account Created Email</button>
+                <button mat-menu-item (click)="onDeactivate(element)">Diactivate Acccount</button>
+
+              </mat-menu>
+            </mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+  
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+  
+      
+  
+      

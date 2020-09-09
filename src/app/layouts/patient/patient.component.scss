@@ -1,0 +1,61 @@
+:host {
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  
+  mat-sidenav {
+    width: 250px;
+  }
+  
+  mat-sidenav-container {
+    height: 100%;
+  }
+  .router-link-active {
+    color: white;
+  }
+  
+  //Content
+  .fixed-size-container {
+    max-width: 1400px;
+    margin: 5px 5px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .fixed-size {
+    width: 135px;
+    height: 130px;
+    background-color: #fff;
+    color: inherit;
+    line-height: 110px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .router-link-active-admin-title {
+    text-decoration: none;
+    color: white;
+  }
+  
+  //header
+  ul li {
+    list-style: none;
+  }
+  
+  .header {
+    padding-top: 0px;
+  }
+  .header-row {
+    display: flex;
+  }
+  .header-remaining-space {
+    flex: 1 1 auto;
+  }
+  .header-controls-items {
+    display: flex;
+  }
+  

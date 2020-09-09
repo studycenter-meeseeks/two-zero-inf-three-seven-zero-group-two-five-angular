@@ -1,0 +1,204 @@
+<div class="mat-elevation-z8 table-container">
+    <div class="table-top-controllers">
+        <span class="table-name"> Add new Psychologist</span>
+    </div>
+
+    <div class="main">
+        <mat-horizontal-stepper linear #stepper class="stepper-container">
+            <mat-step [stepControl]="psychologistDetails" [editable]="true">
+                <form [formGroup]="psychologistDetails" class="form">
+                    <ng-template matStepLabel>Centre Details</ng-template>
+                    <mat-form-field>
+                        <mat-label>Full Name *</mat-label>
+                        <input matInput formControlName="FullName" type="text">
+                        <mat-error *ngIf="FullName.touched && FullName.invalid">
+                            <div *ngIf="FullName.errors.required">full name is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="form-field-inline">
+
+                        <mat-form-field class="form">
+                            <mat-label>Gender</mat-label>
+                            <mat-select formControlName="GenderId">
+                                <mat-option *ngFor="let gender of genders" [value]="gender.id">
+                                    {{gender.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="form">
+                            <mat-label>Title</mat-label>
+                            <mat-select formControlName="TitleId">
+                                <mat-option *ngFor="let title of titles" [value]="title.id">
+                                    {{title.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="form-field-inline">
+
+                        <mat-form-field>
+                            <mat-label>Practice No *</mat-label>
+                            <input matInput formControlName="PracticeNo" type="text">
+                            <mat-error *ngIf="PracticeNo.touched && PracticeNo.invalid">
+                                <div *ngIf="PracticeNo.errors.required">Practice No is required.</div>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>HPCSA No *</mat-label>
+                            <input matInput formControlName="HPCSANo" type="text">
+                            <mat-error *ngIf="HPCSANo.touched && HPCSANo.invalid">
+                                <div *ngIf="HPCSANo.errors.required">HPCSA No is required.</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field>
+                        <mat-label>Practice Title *</mat-label>
+                        <input matInput formControlName="PracticeTitle" type="text" placeholder="clinical psychologist">
+                        <mat-error *ngIf="PracticeTitle.touched && PracticeTitle.invalid">
+                            <div *ngIf="PracticeTitle.errors.required">HPCSA No is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="form-field-inline">
+                        <mat-form-field>
+                            <mat-label>Work Contact Number *</mat-label>
+                            <input matInput formControlName="WorkContactNumber" type="text">
+                            <mat-error *ngIf="WorkContactNumber.touched && WorkContactNumber.invalid">
+                                <div *ngIf="WorkContactNumber.errors.required">Work Contact Number is required.</div>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Cell Contact Number </mat-label>
+                            <input matInput formControlName="CellContactNumber" type="text">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Email Address *</mat-label>
+                            <input matInput formControlName="EmailAddress" type="email">
+                            <mat-error *ngIf="EmailAddress.touched && EmailAddress.invalid">
+                                <div *ngIf="EmailAddress.errors.required">Email Address is required.</div>
+                                <div *ngIf="EmailAddress.errors.email">provide correct email format.</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>About</mat-label>
+                        <textarea matInput formControlName="About"
+                            placeholder="Ex. Provide assessment and psychotherapy to patients presenting...">
+                        </textarea>
+                        <mat-error *ngIf="About.touched && About.invalid">
+                            <div *ngIf="About.errors.required">About is required.</div>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="control-buttons-container">
+                        <button mat-raised-button matStepperNext color="primary">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [editable]="true">
+                <form class="form">
+                    <ng-template matStepLabel>Qualifications</ng-template>
+                    <div class="form-field-inline">
+                        <mat-form-field>
+                            <mat-label>Qualification Title</mat-label>
+                            <input matInput type="text" placeholder="BA SOCIAL WORK (UKZN)" #qualification>
+                        </mat-form-field>
+                        <button mat-raised-button color="accent"
+                            (click)="onAddPsychologistQualification(qualification.value)">
+                            Add
+                        </button>
+                    </div>
+
+                    <div *ngIf="psychologistQualifications.length > 0" class="field-container-inline list-questions">
+                        <mat-list role="list">
+                            <mat-list-item *ngFor="let psychologistQualification of psychologistQualifications">
+                                {{psychologistQualification}}
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <div class="control-buttons-container">
+                        <button mat-raised-button matStepperPrevious>Back</button>
+                        <button mat-raised-button color="primary"
+                         matStepperNext
+                          class="procced-button"
+                          [disabled]="psychologistQualifications.length ==0">
+                            Add Qualification(s)
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [editable]="true">
+                <form class="form">
+                    <ng-template matStepLabel>Services</ng-template>
+                    <div class="form-field-inline">
+                        <mat-form-field>
+                            <mat-label>Service Name</mat-label>
+                            <input matInput type="text" placeholder="Individual Psychotherapy" #service>
+                        </mat-form-field>
+                        <button mat-raised-button color="accent" (click)="onAddPsychologistServices(service.value)">
+                            Add
+                        </button>
+                    </div>
+
+                    <div *ngIf="psychologistServices.length > 0" class="field-container-inline list-questions">
+                        <mat-list role="list">
+                            <mat-list-item *ngFor="let psychologistQualification of psychologistServices">
+                                {{psychologistQualification}}
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <div class="control-buttons-container">
+                        <button mat-raised-button matStepperPrevious>Back</button>
+                        <button mat-raised-button color="primary"
+                         matStepperNext 
+                         class="procced-button"
+                         [disabled]="psychologistServices.length ==0">
+                            Add Service(s)
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [editable]="false">
+                <form>
+                    <ng-template matStepLabel>Addd Psychologist to Centres</ng-template>
+                    <mat-selection-list #centresList
+                        (selectionChange)="onAddCentre(centresList.selectedOptions.selected)">
+                        <mat-list-option *ngFor="let center of centers" [value]="center.id">
+                            {{center.name}}
+                        </mat-list-option>
+                    </mat-selection-list>
+
+                    <div class="control-buttons-container">
+                        <button mat-raised-button color="primary" matStepperNext class="procced-button"
+                            (click)="onSubmit()" [disabled]="selectedCentres.length ==0">
+                            Add Psychologist
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>Psychologist added</p>
+                <div>
+                    <button mat-raised-button color="primary" (click)="onGoToPsychologists()">Go to
+                        Psychologists</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>
