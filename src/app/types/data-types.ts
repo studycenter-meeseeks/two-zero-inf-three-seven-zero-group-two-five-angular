@@ -4,6 +4,6 @@ export interface GenericNameAndId{
 }
 
 export interface CurrentUser{
-    userName:string;
+    UserName:string;
     UserType:string;
 }

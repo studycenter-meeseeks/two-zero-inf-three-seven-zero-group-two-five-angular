@@ -20,6 +20,11 @@ import { ResetPasswordConfirmComponent } from './pages/authentication/reset-pass
 import { PageNotFoundErrorComponent } from './pages/error-handling/page-not-found-error/page-not-found-error.component';
 import { AccountConfirmationErrorComponent } from './pages/authentication/account-confirmation-error/account-confirmation-error.component';
 import { AccountConfirmedComponent } from './pages/authentication/account-confirmed/account-confirmed.component';
+import { JwtModule } from "@auth0/angular-jwt";
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -46,6 +51,12 @@ import { AccountConfirmedComponent } from './pages/authentication/account-confir
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["https://localhost:44335"],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
