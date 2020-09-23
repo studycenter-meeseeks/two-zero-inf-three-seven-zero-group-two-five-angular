@@ -18,7 +18,6 @@ const routes: Routes = [
       { path: 'dashboard', component: SuperDashboardComponent },
       { path: 'roles/new', component: AddUserRoleComponent },
       { path: 'roles', component: ListUserRolesComponent },
-      { path: 'roles', component: ListUserRolesComponent },
       { path: 'psychologists/new', component: AddPsychologistComponent },
       { path: 'psychologists', component: ListPsychologistsComponent },
       { path: 'centres/new', component: AddCentreComponent },
